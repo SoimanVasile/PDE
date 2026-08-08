@@ -40,9 +40,3 @@ python render.py
 
 * **Dimensional Scaling:** Architecting dedicated `SoftSimulator2D` and `SoftSimulator3D` structs to handle multi-dimensional contiguous memory mapping.
 * **Asynchronous I/O:** Implementing a Producer-Consumer threading model using `mpsc` channels to completely decouple disk writes from the main physics execution thread.
-
-## 👨‍💻 About the Developer
-
-Built by Șoiman Vasile-Cristian, a Computer Science student at Babeș-Bolyai University. 
-
-I am currently seeking software engineering internships and junior roles, focusing on high-performance computing, systems engineering, and Rust backend architectures.
