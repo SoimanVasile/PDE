@@ -133,7 +133,7 @@ fn main() {
     // Define a harmonic oscillator potential: 0.5 * k * x^2
     // (You can change this to a wall step to watch quantum tunneling)
     let potential = |x: f64| -> f64 {
-        0.5 * 0.1 * x.powi(2) 
+        if x > 2.0 && x < 3.0 { 10.0 } else { 0.0 }
     };
 
     // Initialize the engine
@@ -146,6 +146,7 @@ fn main() {
 
     let fd = fs::OpenOptions::new()
         .write(true)
+        .truncate(true)
         .open("wave.csv").expect("Couldnt open the file!");
     let mut writer = BufWriter::new(fd);
     // ---- THE EXECUTION LOOP ----
@@ -167,4 +168,7 @@ fn main() {
             }
         }
     } 
+    writer.flush().unwrap();
+
+    println!("Simulation complete!");
 }
