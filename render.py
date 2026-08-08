@@ -50,4 +50,7 @@ print("Rendering animation...")
 ani = FuncAnimation(fig, update, frames=frames,
                     init_func=init, blit=True, interval=20)
 
-plt.show()
+# plt.show()
+print("Encoding MP4 video... (This might take a minute)")
+ani.save('quantum_wave.mp4', writer='ffmpeg', fps=60, dpi=200)
+print("Video saved successfully as quantum_wave.mp4!")

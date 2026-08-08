@@ -125,10 +125,10 @@ impl SoftSimulator1D {
 }
 
 fn main() {
-    let grid_points = 2048; // Must be a power of 2 for maximum FFT speed
-    let grid_length = 40.0;
+    let grid_points = 4096; // Must be a power of 2 for maximum FFT speed
+    let grid_length = 100.0;
     let dt = 0.01;
-    let iterations = 1000;
+    let iterations = 2000;
 
     // Define a harmonic oscillator potential: 0.5 * k * x^2
     // (You can change this to a wall step to watch quantum tunneling)
