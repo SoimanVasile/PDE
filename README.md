@@ -40,10 +40,3 @@ cargo run --release -- --dim 1 --iterations 2000 --output quantum_wave.mp4
 =======
 * **Dimensional Scaling:** Architecting dedicated `SoftSimulator3D` struct to handle 3D memory mapping.
 * **Asynchronous I/O:** Implementing a Producer-Consumer threading model using `mpsc` channels to completely decouple ffmpeg pipes from the main physics execution thread.
-
-## 👨‍💻 About the Developer
-
-Built by Șoiman Vasile-Cristian, a Computer Science student at Babeș-Bolyai University. 
-
-I am currently seeking software engineering internships and junior roles, focusing on high-performance computing, systems engineering, and Rust backend architectures.
->>>>>>> 189181c (README)
