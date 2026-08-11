@@ -37,6 +37,5 @@ cargo run --release -- --dim 1 --iterations 2000 --output quantum_wave.mp4
 <<<<<<< HEAD
 * **Dimensional Scaling:** Architecting dedicated `SoftSimulator2D` and `SoftSimulator3D` structs to handle multi-dimensional contiguous memory mapping.
 * **Asynchronous I/O:** Implementing a Producer-Consumer threading model using `mpsc` channels to completely decouple disk writes from the main physics execution thread.
-=======
 * **Dimensional Scaling:** Architecting dedicated `SoftSimulator3D` struct to handle 3D memory mapping.
 * **Asynchronous I/O:** Implementing a Producer-Consumer threading model using `mpsc` channels to completely decouple ffmpeg pipes from the main physics execution thread.
