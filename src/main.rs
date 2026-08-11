@@ -3,9 +3,14 @@ use clap::Parser;
 
 mod softoned;
 mod render;
+mod softtwod;
 
 use render::render_1d;
 use softoned::SoftSimulator1D;
+
+use softtwod::SoftSimulator2D;
+
+use crate::render::render_2d;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -78,6 +83,43 @@ fn main() {
         ffmpeg.wait().unwrap();
         println!("1D Simulation Complete!");
         
+    } else if cli.dim == 2 {
+        let nx = 512;
+        let ny = 512;
+        let length_x = 40.0;
+        let length_y = 40.0;
+        
+        let potential = |x: f64, y: f64| -> f64 {
+            // A slit / wall in the middle
+            if x > 2.0 && x < 4.0 {
+                if y < -2.0 || y > 2.0 { 100.0 } else { 0.0 } // slit
+            } else { 
+                0.0 
+            }
+        };
+
+        let mut sim = SoftSimulator2D::new(nx, ny, length_x, length_y, dt, potential);
+        // Fire electron towards the slit
+        sim.init_gaussian(-10.0, 0.0, 8.0, 0.0, 1.0, length_x, length_y);
+        
+        println!("Starting 2D Simulation. Outputting to {}", cli.output);
+        
+        let mut ffmpeg = spawn_ffmpeg(nx as u32, ny as u32, &cli.output);
+        let mut stdin = ffmpeg.stdin.take().unwrap();
+        let mut frame_buf = vec![0u8; nx * ny * 3];
+        
+        for i in 0..cli.iterations {
+            sim.step_forward();
+            if i % 10 == 0 {
+                render_2d(&sim, &mut stdin, &mut frame_buf, nx, ny);
+            }
+        }
+        
+        drop(stdin);
+        ffmpeg.wait().unwrap();
+        println!("2D Simulation Complete!");
+        
+
     } else {
         eprintln!("Unsupported dimension: {}", cli.dim);
     }
