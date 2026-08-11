@@ -5,5 +5,9 @@ edition = "2024"
 
 [dependencies]
 bytemuck = "1.25.2"
+clap = { version = "4.6.6", features = ["derive"] }
+ndarray = "0.17.2"
+ndrustfft = "0.6.2"
 num-complex = "0.4.6"
+plotters = "0.3.7"
 rustfft = "6.4.1"
