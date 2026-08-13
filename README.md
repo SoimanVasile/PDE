@@ -1,8 +1,8 @@
-# 1D & 2D Schrödinger Equation Solver (SOFT Method) ⚛️🦀
+# 1D & 2D Schrödinger Equation Solver (SOFT Method) 
 
 A high-performance, time-dependent quantum mechanics engine built from scratch in Rust. This simulator uses the **Split-Operator Fourier Transform (SOFT)** method to model the evolution of a quantum wave packet over time, accurately rendering phenomena like quantum dispersion, tunneling, and wave interference.
 
-## 🚀 Technical Architecture & Optimizations
+## Technical Architecture & Optimizations
 
 Simulating quantum mechanics requires extreme computational efficiency. This engine was built with a strict focus on memory management and execution speed:
 
@@ -11,13 +11,13 @@ Simulating quantum mechanics requires extreme computational efficiency. This eng
 * **Unitary Preservation:** The underlying mathematical model strictly preserves a total probability density of `1.0`, ensuring physically accurate wave behavior without probability degradation.
 * **Integrated Rendering:** The Rust engine directly pipes raw video frames to FFmpeg, removing the need for intermediary CSV files or external Python scripts.
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 To run the simulation and render the visualization, you will need:
 * **Rust & Cargo** (for the physics engine)
 * **FFmpeg** (to encode the final `.mp4` video)
 
-## 🏃 How to Run the Engine
+## How to Run the Engine
 
 **Run the Simulation**
 Execute the Rust engine in release mode. The engine accepts CLI arguments to specify the dimension, number of iterations, and output file.
@@ -32,9 +32,8 @@ cargo run --release -- --dim 1 --iterations 2000 --output quantum_wave.mp4
 
 *Note: This will directly output a `quantum_wave.mp4` (or your chosen output file) in your directory.*
 
-## 🛣️ Roadmap
+## Roadmap
 
-<<<<<<< HEAD
 * **Dimensional Scaling:** Architecting dedicated `SoftSimulator2D` and `SoftSimulator3D` structs to handle multi-dimensional contiguous memory mapping.
 * **Asynchronous I/O:** Implementing a Producer-Consumer threading model using `mpsc` channels to completely decouple disk writes from the main physics execution thread.
 * **Dimensional Scaling:** Architecting dedicated `SoftSimulator3D` struct to handle 3D memory mapping.
