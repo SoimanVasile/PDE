@@ -4,6 +4,7 @@ use clap::Parser;
 mod softoned;
 mod render;
 mod softtwod;
+mod softthreed;
 
 use render::render_1d;
 use softoned::SoftSimulator1D;

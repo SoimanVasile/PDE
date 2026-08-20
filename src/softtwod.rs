@@ -49,7 +49,6 @@ impl SoftSimulator2D {
                 let t = (px * px + py * py) / 2.0;
                 let phase_t = -t * dt;
                
-                // Note: ndifft scales by 1/(nx*ny) by default because of normalization, so we don't divide by N here.
                 kinetic_op[[i, j]] = Complex64::new(0.0, phase_t).exp();
             }
         }
